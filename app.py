@@ -42,7 +42,23 @@ def delete(id):
         db.session.commit()
         return redirect('/')
     except:
-        return 'Cannot delete, please try one more time.'
+        return 'Cannot delete, try one more time.'
+
+
+@app.route('/update/<int:id>', methods=['GET', 'POST'])
+def update(id):
+    task = TODO.query.get_or_404(id)
+
+    if(request.method == 'POST'):
+        task.content = request.form['content']
+
+        try:
+            db.session.commit()
+            return redirect('/')
+        except:
+            return 'Cannot update.. Try one more time.'
+    else:
+        return render_template('update.html', task=task)
 
 
 if __name__ == "__main__":

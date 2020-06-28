@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<div class="content d-flex flex-column">
+    <h1 class="d-flex justify-content-center" style="margin-bottom: 40px;">Flasky<span style="color: #FFC118;">UPDATE</span></h1>
+
+    <form action="/update/{{ task.id }}" method="POST" style="width: 300px; margin:auto; margin-top: 50px;">
+        <div class="input-group mb-3">
+            <input type="text" value="{{ task.content }}" name="content" id="content" class="form-control" placeholder="Change your TODO here.." aria-label="Change your TODO here.." aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <input type="submit" value="Update" class="btn btn-outline-secondary">
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

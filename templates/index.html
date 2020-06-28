@@ -6,7 +6,13 @@
 
 {% block body %}
 <div class="content d-flex flex-column">
-    <h1 class="d-flex justify-content-center" style="margin-bottom: 40px;">Flasky<span style="color: grey;">DO</span></h1>
+    <h1 class="d-flex justify-content-center" style="margin-bottom: 40px;">Flasky<span style="color: #FFC118;">DO</span></h1>
+
+    {% if tasks|length < 1 %}
+
+    <h3 class="display-4 d-flex justify-content-center" style="color: #FFC118; text-align: center;">Nothing to do actually.</h3>
+
+    {% else %}
 
     <table class="d-flex justify-content-center table table-striped table-dark">
         <tr>
@@ -19,12 +25,13 @@
                 <td>{{ task.content }}</td>
                 <td>{{ task.date_created.date() }}</td>
                 <td>
-                    <a href="#" class="btn btn-outline-warning">Update</a>
+                    <a href="/update/{{ task.id }}" class="btn btn-outline-warning">Update</a>
                     <a href="/delete/{{ task.id }}" class="btn btn-outline-danger">Delete</a>
                 </td>
             </tr>
         {% endfor %}
     </table>
+    {% endif %}
 
     <form action="/" method="POST" style="width: 300px; margin:auto; margin-top: 50px;">
         <div class="input-group mb-3">
@@ -34,5 +41,9 @@
             </div>
         </div>
     </form>
+
+    <div style="margin: auto; margin-top: 50px;">
+        <p><span style="color: #FFC118">Created by</span> Rudenko Ruslan @Student</p>
+    </div>
 </div>
 {% endblock %}
