@@ -3,3 +3,7 @@
 body {
   font-family: "Open Sans Condensed", sans-serif;
 }
+
+* {
+  margin-top: 50px;
+}
