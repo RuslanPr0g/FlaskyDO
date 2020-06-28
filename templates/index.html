@@ -6,9 +6,9 @@
 
 {% block body %}
 <div class="content d-flex flex-column">
-    <h1 class="d-flex justify-content-center">FlaskyDO</h1>
+    <h1 class="d-flex justify-content-center" style="margin-bottom: 40px;">Flasky<span style="color: grey;">DO</span></h1>
 
-    <table class="d-flex justify-content-center">
+    <table class="d-flex justify-content-center table table-striped table-dark">
         <tr>
             <td>Task</td>
             <td>Added</td>
@@ -19,15 +19,14 @@
                 <td>{{ task.content }}</td>
                 <td>{{ task.date_created.date() }}</td>
                 <td>
-                    <a href="#">Update</a>
-                    <br>
-                    <a href="#">Delete</a>
+                    <a href="#" class="btn btn-outline-warning">Update</a>
+                    <a href="/delete/{{ task.id }}" class="btn btn-outline-danger">Delete</a>
                 </td>
             </tr>
         {% endfor %}
     </table>
 
-    <form action="/" method="POST" style="width: 300px; margin:auto;">
+    <form action="/" method="POST" style="width: 300px; margin:auto; margin-top: 50px;">
         <div class="input-group mb-3">
             <input type="text" name="content" id="content" class="form-control" placeholder="Write your TODO here.." aria-label="Write your TODO here.." aria-describedby="basic-addon2">
             <div class="input-group-append">
